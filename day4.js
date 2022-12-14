@@ -8,7 +8,16 @@ let overlapFinder = (pairs) => {
     let firstPair = currPairs[0].split('-');
     let secondPair = currPairs[1].split('-');
 
-    if (+firstPair[0] <= +secondPair[0] && +secondPair[1] <= +firstPair[1] || +secondPair[0] <= +firstPair[0] && +firstPair[1] <= +secondPair[1]) {
+    if (+firstPair[0] >= secondPair[0] && +firstPair[0] <= +secondPair[1]) {
+      overlaps++;
+
+    } else if (+firstPair[1] >= secondPair[0] && +firstPair[1] <= +secondPair[1]) {
+      overlaps++;
+
+    } else if (+secondPair[0] >= +firstPair[0] && +secondPair[0] <= +firstPair[1]) {
+      overlaps++;
+
+    } else if (+secondPair[1] >= +firstPair[0] && +secondPair[1] <= +firstPair[1]) {
       overlaps++;
 
     }
