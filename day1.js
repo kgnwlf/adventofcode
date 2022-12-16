@@ -24,9 +24,9 @@ let elfWithMostCalories = (elfsAndTheirCalories) => {
 
           }
 
-          current = 0;
+        current = 0;
 
-          continue;
+        continue;
       }
 
       current += (+calories[i]);
