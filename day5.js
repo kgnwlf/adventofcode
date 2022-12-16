@@ -13,24 +13,13 @@ let crateMover = (orders, crates) => {
 
     let [ from, to ] = [ +toFrom[0] - 1, +toFrom[1] - 1 ];
 
-    for (var j = 0; j < number; j++) {
-      let crate = crates[from].shift();
-
-      if (crate !== undefined) {
-        crates[to].unshift(crate);
-
-      }
-
-
-    }
+    let someCrates = crates[from].splice(0, number);
+    crates[to].unshift(...someCrates);
 
   }
 
   for (var i = 0; i < crates.length; i++) {
-    if (crates[i]?.[0] !== undefined) {
       result += crates[i][0];
-
-    }
 
   }
 
