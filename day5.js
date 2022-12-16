@@ -19,7 +19,7 @@ let crateMover = (orders, crates) => {
   }
 
   for (var i = 0; i < crates.length; i++) {
-      result += crates[i][0];
+    result += crates[i][0];
 
   }
 
