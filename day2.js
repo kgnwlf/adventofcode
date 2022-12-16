@@ -30,7 +30,6 @@ let elfRockPaperScissors = (RPS) => {
   let pointsForThrow = (opp, me) => {
     if (opp !== undefined && me !== undefined) {
       total += gameStatus[me];
-
       total += throwPoints[combinations[opp + me]];
 
     }
