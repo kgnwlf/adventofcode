@@ -1,18 +1,14 @@
 let findAllPossibleGames = (games) => {
     games = games.split('\n');
-    let gameIDTotals = 0;
-
-    let mostAllowed = { red: 12, green: 13, blue: 14 };
+    let minimumSum = 0;
 
     games.forEach((game) => {
         game = game.split(': ');
         let gameOrder = game[1].split('; ');
 
-        let possibleGame = true;
+        let colorMinimums = { red: Number.NEGATIVE_INFINITY, green: Number.NEGATIVE_INFINITY, blue: Number.NEGATIVE_INFINITY };
 
         gameOrder.forEach((order) => {
-            if (!possibleGame) { return; }
-
             order = order.split(', ');
 
             for (let i = 0; i < order.length; i++) {
@@ -20,17 +16,19 @@ let findAllPossibleGames = (games) => {
 
                 [amount, color] = order[i].split(' ');
 
-                if (Number(amount) > mostAllowed[color]) { possibleGame = false; return; }
+                amount = Number(amount);
+
+                if (colorMinimums[color] < amount) { colorMinimums[color] = amount };
 
             }
 
         });
 
-        if (possibleGame) { gameIDTotals += Number(game[0].split(' ')[1]); }
+        minimumSum += Object.values(colorMinimums).reduce((total, value) => total *= value, 1);
 
     });
 
-    console.log(gameIDTotals)
+    console.log(minimumSum)
 
 }
 
