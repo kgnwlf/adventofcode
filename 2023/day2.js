@@ -6,7 +6,7 @@ let findAllPossibleGames = (games) => {
         game = game.split(': ');
         let gameOrder = game[1].split('; ');
 
-        let colorMinimums = { red: Number.NEGATIVE_INFINITY, green: Number.NEGATIVE_INFINITY, blue: Number.NEGATIVE_INFINITY };
+        let colorMinimums = { red: 0, green: 0, blue: 0 };
 
         gameOrder.forEach((order) => {
             order = order.split(', ');
