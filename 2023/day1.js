@@ -4,6 +4,7 @@ let findCalibrationSums = () => {
 
 	splitInput.forEach((calibration) => {
 		let calibrationNums = [];
+		calibration = changeCalibration(calibration);
 
 		for (let i = 0; calibration.length > i; i++) {
 			let currentChar = parseInt(calibration[i]);
@@ -13,6 +14,8 @@ let findCalibrationSums = () => {
 			calibrationNums.push(currentChar);
 		}
 
+		console.log('CALIBRATION', calibration);
+		console.log(parseInt(`${ calibrationNums[0] }${ calibrationNums[calibrationNums.length - 1] }`))
 		calibrationSum += parseInt(`${ calibrationNums[0] }${ calibrationNums[calibrationNums.length - 1] }`);
 
 	});
@@ -20,6 +23,27 @@ let findCalibrationSums = () => {
 	console.log(calibrationSum);
 
 };
+
+let changeCalibration = (input) => {
+	let numberConversion = {
+		'one': 'o1e',
+		'two': 't2o',
+		'three': 't3e',
+		'four': 'f4r',
+		'five': 'f5e',
+		'six': 's6x',
+		'seven': 's7n',
+		'eight': 'e8t',
+		'nine': 'n9e'
+	}
+
+	for (number in numberConversion) {
+		input = input.replaceAll(number, numberConversion[number]);
+	}
+
+	return input;
+
+}
 
 let input = `kjrqmzv9mmtxhgvsevenhvq7
 four2tszbgmxpbvninebxns6nineqbqzgjpmpqr
