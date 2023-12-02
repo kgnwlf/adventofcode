@@ -1,4 +1,6 @@
 let findCalibrationSums = () => {
+	console.time();
+
 	let splitInput = input.split('\n');
 	let calibrationSum = 0;
 
@@ -14,11 +16,11 @@ let findCalibrationSums = () => {
 			calibrationNums.push(currentChar);
 		}
 
-		console.log('CALIBRATION', calibration);
-		console.log(parseInt(`${ calibrationNums[0] }${ calibrationNums[calibrationNums.length - 1] }`))
 		calibrationSum += parseInt(`${ calibrationNums[0] }${ calibrationNums[calibrationNums.length - 1] }`);
 
 	});
+
+	console.timeEnd();
 
 	console.log(calibrationSum);
 
